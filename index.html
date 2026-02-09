@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine, Aayesha?</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0, #ffafbd);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            padding: 20px;
+            position: relative;
+        }
+        
+        /* Valentine-themed floating decorations */
+        .heart {
+            position: absolute;
+            color: #ff4081;
+            font-size: 24px;
+            z-index: 0;
+            animation: float 6s infinite ease-in-out;
+            opacity: 0.7;
+        }
+        
+        .rose {
+            position: absolute;
+            font-size: 30px;
+            color: #e91e63;
+            z-index: 0;
+            animation: sway 10s infinite ease-in-out;
+            opacity: 0.7;
+        }
+        
+        .balloon {
+            position: absolute;
+            width: 50px;
+            height: 70px;
+            border-radius: 50%;
+            z-index: 0;
+            animation: floatBalloon 8s infinite ease-in-out;
+            opacity: 0.8;
+        }
+        
+        .balloon:before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.7);
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .gift {
+            position: absolute;
+            font-size: 28px;
+            color: #ff5252;
+            z-index: 0;
+            animation: bounce 7s infinite ease-in-out;
+            opacity: 0.7;
+        }
+        
+        .teddy {
+            position: absolute;
+            font-size: 35px;
+            color: #8d6e63;
+            z-index: 0;
+            animation: rotate 15s infinite linear;
+            opacity: 0.7;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-25px) rotate(10deg); }
+        }
+        
+        @keyframes sway {
+            0%, 100% { transform: rotate(-5deg); }
+            50% { transform: rotate(5deg); }
+        }
+        
+        @keyframes floatBalloon {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            33% { transform: translateY(-35px) translateX(15px); }
+            66% { transform: translateY(-15px) translateX(-10px); }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Main container */
+        .valentine-container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            padding: 40px 30px;
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            min-height: 550px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 10px solid transparent;
+            background-clip: padding-box;
+            border-image: linear-gradient(45deg, #ff7eb3, #ff758c, #ff7eb3) 1;
+        }
+        
+        /* Text styling */
+        h1 {
+            color: #d32f75;
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            line-height: 1.2;
+        }
+        
+        h2 {
+            color: #ff4081;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+        
+        p {
+            color: #666;
+            font-size: 1.5rem;
+            margin-bottom: 35px;
+            line-height: 1.6;
+            max-width: 95%;
+        }
+        
+        .malayalam-text {
+            font-size: 1.8rem;
+            color: #e91e63;
+            font-weight: 700;
+            margin: 25px 0;
+            line-height: 1.5;
+            padding: 0 15px;
+        }
+        
+        .error-text {
+            font-family: 'Courier New', monospace;
+            color: #ff5252;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        
+        .special-message {
+            background: linear-gradient(45deg, #ffebee, #fce4ec);
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            border-left: 5px solid #ff4081;
+            text-align: left;
+            font-size: 1.4rem;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        /* Mobile responsive text */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2rem; }
+            p { font-size: 1.3rem; }
+            .malayalam-text { font-size: 1.6rem; }
+            .special-message { font-size: 1.2rem; padding: 20px; }
+        }
+        
+        @media (max-width: 480px) {
+            h1 { font-size: 2.3rem; }
+            h2 { font-size: 1.7rem; }
+            p { font-size: 1.2rem; }
+            .malayalam-text { font-size: 1.4rem; }
+            .valentine-container {
+                padding: 25px 20px;
+                border-width: 6px;
+                min-height: 500px;
+            }
+            .special-message { font-size: 1.1rem; padding: 15px; }
+        }
+        
+        /* Buttons */
+        .options {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            width: 100%;
+        }
+        
+        .btn {
+            padding: 18px 40px;
+            font-size: 1.5rem;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 700;
+            min-width: 200px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover::after {
+            left: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .btn {
+                padding: 16px 30px;
+                font-size: 1.3rem;
+                min-width: 180px;
+            }
+            .options {
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .btn {
+                padding: 14px 25px;
+                font-size: 1.2rem;
+                min-width: 160px;
+            }
+            .options {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+        }
+        
+        .yes-btn {
+            background: linear-gradient(to right, #ff4081, #ff7eb3);
+            color: white;
+            border: 3px solid #ff4081;
+        }
+        
+        .yes-btn:hover {
+            background: linear-gradient(to right, #e91e63, #ff4081);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 25px rgba(233, 30, 99, 0.4);
+        }
+        
+        .no-btn {
+            background: linear-gradient(to right, #f8bbd9, #fce4ec);
+            color: #d32f75;
+            border: 3px solid #f8bbd9;
+            position: relative;
+        }
+        
+        .no-btn:hover {
+            background: linear-gradient(to right, #f48fb1, #f8bbd9);
+            transform: translateY(-3px);
+        }
+        
+        .funny-btn {
+            background: linear-gradient(to right, #ff9800, #ffb74d);
+            color: white;
+            border: 3px solid #ff9800;
+        }
+        
+        .funny-btn:hover {
+            background: linear-gradient(to right, #f57c00, #ff9800);
+            transform: translateY(-3px);
+        }
+        
+        /* Celebration animation */
+        .celebration {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            flex-direction: column;
+            padding: 20px;
+        }
+        
+        .celebration-content {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            padding: 50px 40px;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+            border: 8px solid #ff7eb3;
+        }
+        
+        .celebration h1 {
+            font-size: 4rem;
+            color: #ff4081;
+            animation: pulse 1.5s infinite;
+        }
+        
+        .celebration .malayalam-text {
+            font-size: 2.2rem;
+            margin: 30px 0;
+            color: #e91e63;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            animation: confettiFall 5s linear infinite;
+            z-index: 999;
+        }
+        
+        @keyframes confettiFall {
+            0% { 
+                transform: translateY(-100px) rotate(0deg); 
+                opacity: 1;
+            }
+            100% { 
+                transform: translateY(100vh) rotate(360deg); 
+                opacity: 0;
+            }
+        }
+        
+        /* Balloon pop animation */
+        .balloon-pop {
+            position: absolute;
+            width: 80px;
+            height: 100px;
+            border-radius: 50%;
+            animation: pop 0.5s forwards;
+            z-index: 1001;
+        }
+        
+        @keyframes pop {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(3); opacity: 0; }
+        }
+        
+        /* Page transition */
+        .page {
+            display: none;
+            width: 100%;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        .active {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Decorative images in content */
+        .decorations {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 25px 0;
+            flex-wrap: wrap;
+        }
+        
+        .decoration-icon {
+            font-size: 40px;
+            color: #ff4081;
+            animation: bounce 2s infinite alternate;
+        }
+        
+        /* Progress indicator */
+        .progress {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .progress-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background-color: #f8bbd9;
+            transition: background-color 0.3s;
+        }
+        
+        .progress-dot.active {
+            background-color: #ff4081;
+            box-shadow: 0 0 10px #ff4081;
+        }
+        
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .celebration h1 { font-size: 3rem; }
+            .celebration .malayalam-text { font-size: 1.8rem; }
+            .celebration-content { padding: 30px 20px; }
+            .decorations { gap: 20px; }
+            .decoration-icon { font-size: 30px; }
+            .progress { gap: 6px; margin-top: 30px; }
+            .progress-dot { width: 12px; height: 12px; }
+        }
+        
+        @media (max-width: 480px) {
+            .celebration h1 { font-size: 2.5rem; }
+            .celebration .malayalam-text { font-size: 1.5rem; }
+            body { padding: 10px; }
+            .decorations { gap: 15px; }
+            .decoration-icon { font-size: 25px; }
+            .progress { gap: 5px; }
+        }
+        
+        /* Kiss emojis */
+        .kiss-emojis {
+            font-size: 3rem;
+            margin: 20px 0;
+            letter-spacing: 10px;
+        }
+        
+        .crying-emoji {
+            font-size: 4rem;
+            margin: 20px 0;
+            animation: shake 1s infinite;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @media (max-width: 768px) {
+            .kiss-emojis { font-size: 2.5rem; letter-spacing: 5px; }
+            .crying-emoji { font-size: 3rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating decorations -->
+    <div class="heart" style="top: 10%; left: 5%;"><i class="fas fa-heart"></i></div>
+    <div class="heart" style="top: 20%; right: 8%;"><i class="fas fa-heart"></i></div>
+    <div class="heart" style="bottom: 25%; left: 7%;"><i class="fas fa-heart"></i></div>
+    <div class="heart" style="bottom: 15%; right: 10%;"><i class="fas fa-heart"></i></div>
+    
+    <div class="rose" style="top: 15%; left: 10%;"><i class="fas fa-spa"></i></div>
+    <div class="rose" style="bottom: 20%; right: 5%;"><i class="fas fa-spa"></i></div>
+    
+    <div class="balloon" style="top: 5%; left: 20%; background: #ff4081;"></div>
+    <div class="balloon" style="top: 12%; right: 15%; background: #ff7eb3;"></div>
+    <div class="balloon" style="bottom: 10%; left: 15%; background: #ff5252;"></div>
+    
+    <div class="gift" style="top: 30%; left: 5%;"><i class="fas fa-gift"></i></div>
+    <div class="gift" style="bottom: 30%; right: 8%;"><i class="fas fa-gift"></i></div>
+    
+    <div class="teddy" style="top: 35%; right: 10%;"><i class="fas fa-paw"></i></div>
+    <div class="teddy" style="bottom: 35%; left: 12%;"><i class="fas fa-paw"></i></div>
+    
+    <!-- Main container with all pages -->
+    <div class="valentine-container">
+        <!-- Page 1: Do you personally know Asif Naushad? -->
+        <div class="page active" id="page1">
+            <h1>Do you personally know Asif Naushad?</h1>
+            <div class="decorations">
+                <div class="decoration-icon"><i class="fas fa-user"></i></div>
+                <div class="decoration-icon"><i class="fas fa-heart"></i></div>
+                <div class="decoration-icon"><i class="fas fa-user"></i></div>
+            </div>
+            <div class="options">
+                <button class="btn yes-btn" onclick="nextPage(4)">Yes</button>
+                <button class="btn funny-btn" onclick="nextPage(2)">Eyy Athaara?</button>
+            </div>
+            <div class="progress">
+                <div class="progress-dot active"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+            </div>
+        </div>
+        
+        <!-- Page 2: Wahhh kallam paraynnaa?? -->
+        <div class="page" id="page2">
+            <h2 class="malayalam-text">Wahhh kallam paraynnaa??</h2>
+            <p class="malayalam-text">Ramadan varuane Sathyam para angott</p>
+            <div class="decorations">
+                <div class="decoration-icon"><i class="fas fa-mosque"></i></div>
+                <div class="decoration-icon"><i class="fas fa-star"></i></div>
+                <div class="decoration-icon"><i class="fas fa-mosque"></i></div>
+            </div>
+            <div class="options">
+                <button class="btn yes-btn" onclick="nextPage(1)">Yes ente Chekkan aan</button>
+                <button class="btn no-btn" onclick="nextPage(3)">Haa ex-classmate aan</button>
+            </div>
+            <div class="progress">
+                <div class="progress-dot"></div>
+                <div class="progress-dot active"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+            </div>
+        </div>
+        
+        <!-- Page 3: Dey, njan Mohavaagdhanam -->
+        <div class="page" id="page3">
+            <h2 class="malayalam-text">Dey, njan Mohavaagdhanam thann kadann kalanjenu case kodkue</h2>
+            <div class="crying-emoji">😭</div>
+            <p class="malayalam-text">Nduaa kallam paraynn pinnem</p>
+            <div class="decorations">
+                <div class="decoration-icon"><i class="fas fa-gavel"></i></div>
+                <div class="decoration-icon"><i class="fas fa-heart-broken"></i></div>
+                <div class="decoration-icon"><i class="fas fa-gavel"></i></div>
+            </div>
+            <div class="options">
+                <button class="btn yes-btn" onclick="nextPage(1)">Haa ariya ariya</button>
+            </div>
+            <div class="progress">
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot active"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+            </div>
+        </div>
+        
+        <!-- Page 4: Do you know that Asif is madly in love with you?? -->
+        <div class="page" id="page4">
+            <h1>Do you know that Asif is madly in love with you??</h1>
+            <div class="decorations">
+                <div class="decoration-icon"><i class="fas fa-heart"></i></div>
+                <div class="decoration-icon"><i class="fas fa-fire"></i></div>
+                <div class="decoration-icon"><i class="fas fa-heart"></i></div>
+            </div>
+            <div class="options">
+                <button class="btn yes-btn" onclick="nextPage(6)">YES</button>
+                <button class="btn funny-btn" onclick="nextPage(5)">Eh Aahno?</button>
+            </div>
+            <div class="progress">
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot active"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+            </div>
+        </div>
+        
+        <!-- Page 5: Aahdaa Aahnu Vallaatha Ishtava -->
+        <div class="page" id="page5">
+            <h2 class="malayalam-text">Aahdaa Aahnu Vallaatha Ishtava Ninnod Avanikk!!</h2>
+            <div class="decorations">
+                <div class="decoration-icon"><i class="fas fa-exclamation"></i></div>
+                <div class="decoration-icon"><i class="fas fa-heart"></i></div>
+                <div class="decoration-icon"><i class="fas fa-exclamation"></i></div>
+            </div>
+            <div class="options">
+                <button class="btn yes-btn" onclick="nextPage(4)">Oo Ok Ok</button>
+            </div>
+            <div class="progress">
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot active"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+            </div>
+        </div>
+        
+        <!-- Page 6: Do You Love Anukka? -->
+        <div class="page" id="page6">
+            <h1>Do You Love Anukka?</h1>
+            <div class="decorations">
+                <div class="decoration-icon"><i class="fas fa-heart"></i></div>
+                <div class="decoration-icon"><i class="fas fa-gift"></i></div>
+                <div class="decoration-icon"><i class="fas fa-heart"></i></div>
+            </div>
+            <div class="options">
+                <button class="btn yes-btn" onclick="nextPage(7)">Pinnallathe</button>
+                <button class="btn no-btn" onclick="nextPage(8)">Ayye Noo</button>
+            </div>
+            <div class="progress">
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot active"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+            </div>
+        </div>
+        
+        <!-- Page 7: Enki para: Anukka or Poocha? -->
+        <div class="page" id="page7">
+            <h2 class="malayalam-text">Enki para: Anukka or Poocha?</h2>
+            <div class="decorations">
+                <div class="decoration-icon"><i class="fas fa-cat"></i></div>
+                <div class="decoration-icon"><i class="fas fa-heart"></i></div>
+                <div class="decoration-icon"><i class="fas fa-user"></i></div>
+            </div>
+            <div class="options">
+                <button class="btn yes-btn" onclick="nextPage(11)">Anukka</button>
+                <button class="btn no-btn" onclick="nextPage(10)">Poocha</button>
+            </div>
+            <div class="progress">
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot active"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+            </div>
+        </div>
+        
+        <!-- Page 8: Error 404 -->
+        <div class="page" id="page8">
+            <h2 class="error-text">Error 404: Wrong Answer detected</h2>
+            <p class="malayalam-text">Eda nee marann poyatha, Nink ennod Snegavaa!! So Let's try that again</p>
+            <div class="decorations">
+                <div class="decoration-icon"><i class="fas fa-exclamation-triangle"></i></div>
+                <div class="decoration-icon"><i class="fas fa-heart-broken"></i></div>
+                <div class="decoration-icon"><i class="fas fa-exclamation-triangle"></i></div>
+            </div>
+            <div class="options">
+                <button class="btn yes-btn" onclick="nextPage(6)">Retry</button>
+                <button class="btn no-btn" onclick="nextPage(9)">Still NO</button>
+            </div>
+            <div class="progress">
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot active"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+            </div>
+        </div>
+        
+        <!-- Page 9: Do you have a heart? -->
+        <div class="page" id="page9">
+            <h1>Do you have a heart?</h1>
+            <div class="decorations">
+                <div class="decoration-icon"><i class="fas fa-heartbeat"></i></div>
+                <div class="decoration-icon"><i class="fas fa-heart"></i></div>
+                <div class="decoration-icon"><i class="fas fa-heartbeat"></i></div>
+            </div>
+            <div class="options">
+                <button class="btn yes-btn" onclick="nextPage(12)">Yes ofc</button>
+                <button class="btn no-btn" onclick="nextPage(14)">Nah</button>
+            </div>
+            <div class="progress">
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot active"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+            </div>
+        </div>
+        
+        <!-- Page 10: Enthua Aayeshaa Kroori aavalleee -->
+        <div class="page" id="page10">
+            <h2 class="malayalam-text">Enthua Aayeshaa Kroori aavalleee</h2>
+            <p class="malayalam-text">Enneya Ishtam Nink</p>
+            <div class="decorations">
+                <div class="decoration-icon"><i class="fas fa-sad-cry"></i></div>
+                <div class="decoration-icon"><i class="fas fa-heart-broken"></i></div>
+                <div class="decoration-icon"><i class="fas fa-sad-cry"></i></div>
+            </div>
+            <div class="options">
+                <button class="btn yes-btn" onclick="nextPage(7)">Aah aaykot</button>
+            </div>
+            <div class="progress">
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot active"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+            </div>
+        </div>
+        
+        <!-- Page 11: Enkile ennod paraa -->
+        <div class="page" id="page11">
+            <h2 class="malayalam-text">Enkile ennod paraa, I Love Youuuunnn</h2>
+            <div class="decorations">
+                <div class="decoration-icon"><i class="fas fa-heart"></i></div>
+                <div class="decoration-icon"><i class="fas fa-kiss-wink-heart"></i></div>
+                <div class="decoration-icon"><i class="fas fa-heart"></i></div>
+            </div>
+            <div class="options">
+                <button class="btn yes-btn" onclick="nextPage(13)">I LOOVEE YOOUU!!!</button>
+                <button class="btn no-btn" onclick="nextPage(13)">Aah Love you Love you</button>
+            </div>
+            <div class="progress">
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot active"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+            </div>
+        </div>
+        
+        <!-- Page 12: Apo aa Heartil Njan Kaanum orappa -->
+        <div class="page" id="page12">
+            <h2 class="malayalam-text">Apo aa Heartil Njan Kaanum orappa!</h2>
+            <div class="decorations">
+                <div class="decoration-icon"><i class="fas fa-search"></i></div>
+                <div class="decoration-icon"><i class="fas fa-heart"></i></div>
+                <div class="decoration-icon"><i class="fas fa-search"></i></div>
+            </div>
+            <div class="options">
+                <button class="btn yes-btn" onclick="nextPage(6)">Haa Ondallo!</button>
+            </div>
+            <div class="progress">
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot active"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+            </div>
+        </div>
+        
+        <!-- Page 13: Special message page -->
+        <div class="page" id="page13">
+            <h2>Our Journey Together ❤️</h2>
+            <div class="special-message">
+                <p>We've had our ups and downs, but we never stopped choosing each other over the hurdles - and that means everything to me.</p>
+                <p>Thank you for your patience, your love, and for always standing beside me, even when I was hard to be with.</p>
+                <p>I Love You So Much and if Ninakkm enne Ishtaanel, Njan oru Karyam Choichotte?</p>
+            </div>
+            <div class="decorations">
+                <div class="decoration-icon"><i class="fas fa-heart"></i></div>
+                <div class="decoration-icon"><i class="fas fa-hands-helping"></i></div>
+                <div class="decoration-icon"><i class="fas fa-heart"></i></div>
+            </div>
+            <div class="options">
+                <button class="btn yes-btn" onclick="nextPage(15)">Choicho</button>
+            </div>
+            <div class="progress">
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot active"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+            </div>
+        </div>
+        
+        <!-- Page 14: Enthuaa Aayeshaaa Kallam parayalee -->
+        <div class="page" id="page14">
+            <h2 class="malayalam-text">Enthuaa Aayeshaaa Kallam parayalee</h2>
+            <p class="malayalam-text">Heart ond Athil Njanum Ond!!!</p>
+            <div class="decorations">
+                <div class="decoration-icon"><i class="fas fa-heart"></i></div>
+                <div class="decoration-icon"><i class="fas fa-user"></i></div>
+                <div class="decoration-icon"><i class="fas fa-heart"></i></div>
+            </div>
+            <div class="options">
+                <button class="btn yes-btn" onclick="nextPage(6)">Ok sammaychu</button>
+            </div>
+            <div class="progress">
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot active"></div>
+                <div class="progress-dot"></div>
+            </div>
+        </div>
+        
+        <!-- Page 15: Final question -->
+        <div class="page" id="page15">
+            <h1>Will You Be My Valentine, Aayesha Navas?</h1>
+            <div class="decorations">
+                <div class="decoration-icon"><i class="fas fa-ring"></i></div>
+                <div class="decoration-icon"><i class="fas fa-heart"></i></div>
+                <div class="decoration-icon"><i class="fas fa-ring"></i></div>
+            </div>
+            <div class="options">
+                <button class="btn yes-btn" onclick="showCelebration()">Yes Asif Naushad</button>
+                <button class="btn no-btn" onclick="nextPage(16)">NO</button>
+            </div>
+            <div class="progress">
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot active"></div>
+            </div>
+        </div>
+        
+        <!-- Page 16: Wahhh Ithrem Kashtappettit -->
+        <div class="page" id="page16">
+            <h2 class="malayalam-text">Wahhh Ithrem Kashtappettit Enne Karaypikan aan alle plan..</h2>
+            <p class="malayalam-text">TRY AGAIN Mandippenney!</p>
+            <div class="decorations">
+                <div class="decoration-icon"><i class="fas fa-smile-wink"></i></div>
+                <div class="decoration-icon"><i class="fas fa-heart"></i></div>
+                <div class="decoration-icon"><i class="fas fa-smile-wink"></i></div>
+            </div>
+            <div class="options">
+                <button class="btn yes-btn" onclick="nextPage(15)">Haa OK</button>
+            </div>
+            <div class="progress">
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot"></div>
+                <div class="progress-dot active"></div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Celebration screen -->
+    <div class="celebration" id="celebration">
+        <div class="celebration-content">
+            <h1>🎉 YAY! SHE SAID YES! 🎉</h1>
+            
+            <div class="special-message">
+                <p class="malayalam-text">Sheyyy ente tactics somehow work aayi wahhh, Thank Youu!!</p>
+                <div class="kiss-emojis">😘😘😘😘😘</div>
+                <p>You've made me the happiest person today! ❤️</p>
+            </div>
+            
+            <div class="decorations">
+                <div class="decoration-icon"><i class="fas fa-heart"></i></div>
+                <div class="decoration-icon"><i class="fas fa-glass-cheers"></i></div>
+                <div class="decoration-icon"><i class="fas fa-heart"></i></div>
+            </div>
+            
+            <button class="btn yes-btn" style="margin-top: 30px;" onclick="location.reload()">Start Over</button>
+        </div>
+    </div>
+
+    <script>
+        // Current page tracker
+        let currentPage = 1;
+        
+        // Function to navigate between pages
+        function nextPage(pageNumber) {
+            // Hide current page
+            document.getElementById(`page${currentPage}`).classList.remove('active');
+            
+            // Update progress dots
+            document.querySelectorAll('.progress-dot').forEach(dot => {
+                dot.classList.remove('active');
+            });
+            
+            // Show new page
+            document.getElementById(`page${pageNumber}`).classList.add('active');
+            
+            // Update progress dot for new page
+            if (pageNumber <= 16) {
+                document.querySelectorAll('.progress-dot')[pageNumber-1].classList.add('active');
+            }
+            
+            // Update current page
+            currentPage = pageNumber;
+            
+            // Scroll to top for mobile
+            window.scrollTo(0, 0);
+            
+            // Add some floating hearts animation on page change
+            createFloatingHearts();
+            
+            // Play a gentle sound on page change
+            playPageChangeSound();
+        }
+        
+        // Function to show celebration animation
+        function showCelebration() {
+            // Hide the main container
+            document.querySelector('.valentine-container').style.display = 'none';
+            
+            // Show celebration screen
+            const celebration = document.getElementById('celebration');
+            celebration.style.display = 'flex';
+            
+            // Create balloon pop animation
+            createBalloonPop();
+            
+            // Create confetti
+            createConfetti();
+            
+            // Play celebration sound
+            playCelebrationSound();
+        }
+        
+        // Function to create balloon pop animation
+        function createBalloonPop() {
+            const colors = ['#ff4081', '#ff7eb3', '#ff5252', '#ffab91', '#e91e63'];
+            
+            // Create 25 popping balloons
+            for (let i = 0; i < 25; i++) {
+                setTimeout(() => {
+                    const balloon = document.createElement('div');
+                    balloon.classList.add('balloon-pop');
+                    
+                    // Random color
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    balloon.style.backgroundColor = color;
+                    
+                    // Random position
+                    const left = Math.random() * 90;
+                    const top = Math.random() * 90;
+                    balloon.style.left = `${left}vw`;
+                    balloon.style.top = `${top}vh`;
+                    
+                    // Add to celebration div
+                    document.getElementById('celebration').appendChild(balloon);
+                    
+                    // Remove balloon after animation
+                    setTimeout(() => {
+                        balloon.remove();
+                    }, 500);
+                }, i * 100);
+            }
+        }
+        
+        // Function to create confetti
+        function createConfetti() {
+            const colors = ['#ff4081', '#ff7eb3', '#ff5252', '#ffab91', '#e91e63'];
+            
+            // Create initial confetti burst
+            for (let i = 0; i < 250; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.classList.add('confetti');
+                    
+                    // Random color
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.backgroundColor = color;
+                    
+                    // Random size
+                    const size = Math.random() * 20 + 5;
+                    confetti.style.width = `${size}px`;
+                    confetti.style.height = `${size}px`;
+                    
+                    // Random shape (some as circles, some as squares)
+                    if (Math.random() > 0.5) {
+                        confetti.style.borderRadius = '50%';
+                    } else {
+                        confetti.style.borderRadius = '0';
+                    }
+                    
+                    // Random position
+                    confetti.style.left = `${Math.random() * 100}vw`;
+                    
+                    // Random animation duration
+                    const duration = Math.random() * 4 + 2;
+                    confetti.style.animationDuration = `${duration}s`;
+                    
+                    // Random animation delay
+                    confetti.style.animationDelay = `${Math.random() * 2}s`;
+                    
+                    // Add to celebration div
+                    document.getElementById('celebration').appendChild(confetti);
+                    
+                    // Remove confetti after animation completes
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, (duration + 2) * 1000);
+                }, i * 10);
+            }
+            
+            // Keep generating confetti every 3 seconds
+            setInterval(() => {
+                if (document.getElementById('celebration').style.display === 'flex') {
+                    createMoreConfetti();
+                }
+            }, 3000);
+        }
+        
+        // Function to create more confetti
+        function createMoreConfetti() {
+            const colors = ['#ff4081', '#ff7eb3', '#ff5252', '#ffab91', '#e91e63'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.backgroundColor = color;
+                
+                const size = Math.random() * 15 + 5;
+                confetti.style.width = `${size}px`;
+                confetti.style.height = `${size}px`;
+                
+                if (Math.random() > 0.5) {
+                    confetti.style.borderRadius = '50%';
+                }
+                
+                confetti.style.left = `${Math.random() * 100}vw`;
+                
+                const duration = Math.random() * 4 + 2;
+                confetti.style.animationDuration = `${duration}s`;
+                
+                document.getElementById('celebration').appendChild(confetti);
+                
+                setTimeout(() => {
+                    confetti.remove();
+                }, (duration + 2) * 1000);
+            }
+        }
+        
+        // Function to create floating hearts on page change
+        function createFloatingHearts() {
+            for (let i = 0; i < 3; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = '<i class="fas fa-heart"></i>';
+                    heart.style.position = 'fixed';
+                    heart.style.color = '#ff4081';
+                    heart.style.fontSize = '20px';
+                    heart.style.zIndex = '999';
+                    heart.style.left = `${Math.random() * 100}vw`;
+                    heart.style.top = '100vh';
+                    heart.style.animation = `floatUp ${Math.random() * 2 + 2}s linear forwards`;
+                    
+                    document.body.appendChild(heart);
+                    
+                    // Remove heart after animation
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 4000);
+                }, i * 300);
+            }
+            
+            // Add CSS for floatUp animation
+            if (!document.querySelector('#floatUpStyle')) {
+                const style = document.createElement('style');
+                style.id = 'floatUpStyle';
+                style.textContent = `
+                    @keyframes floatUp {
+                        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+                        100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+                    }
+                `;
+                document.head.appendChild(style);
+            }
+        }
+        
+        // Function to play celebration sound
+        function playCelebrationSound() {
+            // Create an audio context for celebration sounds
+            try {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                
+                // Create multiple beep sounds for celebration
+                for (let i = 0; i < 10; i++) {
+                    setTimeout(() => {
+                        const oscillator = audioContext.createOscillator();
+                        const gainNode = audioContext.createGain();
+                        
+                        oscillator.connect(gainNode);
+                        gainNode.connect(audioContext.destination);
+                        
+                        // Ascending pitch for happy sound
+                        oscillator.frequency.value = 500 + i * 80;
+                        oscillator.type = 'sine';
+                        
+                        gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+                        
+                        oscillator.start(audioContext.currentTime);
+                        oscillator.stop(audioContext.currentTime + 0.5);
+                    }, i * 120);
+                }
+            } catch (e) {
+                console.log("Audio not supported in this browser");
+            }
+        }
+        
+        // Function to play page change sound
+        function playPageChangeSound() {
+            try {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+                
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                
+                oscillator.frequency.value = 800;
+                oscillator.type = 'sine';
+                
+                gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
+                
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.2);
+            } catch (e) {
+                // Audio not supported, skip
+            }
+        }
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set initial progress dot
+            document.querySelectorAll('.progress-dot')[0].classList.add('active');
+            
+            // Create some initial floating hearts
+            createFloatingHearts();
+            
+            // Add click effects to buttons
+            document.querySelectorAll('.btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Add a small ripple effect
+                    const ripple = document.createElement('span');
+                    const rect = this.getBoundingClientRect();
+                    const size = Math.max(rect.width, rect.height);
+                    const x = event.clientX - rect.left - size/2;
+                    const y = event.clientY - rect.top - size/2;
+                    
+                    ripple.style.cssText = `
+                        position: absolute;
+                        border-radius: 50%;
+                        background: rgba(255, 255, 255, 0.7);
+                        transform: scale(0);
+                        animation: ripple 0.6s linear;
+                        width: ${size}px;
+                        height: ${size}px;
+                        top: ${y}px;
+                        left: ${x}px;
+                    `;
+                    
+                    this.appendChild(ripple);
+                    
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+            
+            // Add ripple animation style
+            const rippleStyle = document.createElement('style');
+            rippleStyle.textContent = `
+                @keyframes ripple {
+                    to {
+                        transform: scale(4);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(rippleStyle);
+        });
+    </script>
+</body>
+</html>
